@@ -1,0 +1,18 @@
+<div class="form__group field">
+  <select
+    [name]="key"
+    [id]="id"
+    (change)="onOptionSelected($event)"
+    [ngModel]="value"
+    class="form__field">
+      <option [value]="null" selected disabled>Please select value</option>
+      <option
+        *ngFor="let option of options"
+        [value]="option">
+        {{option}}
+      </option>
+  </select>
+  <label
+    [for]="id"
+    class="form__label">{{label}}</label>
+</div>

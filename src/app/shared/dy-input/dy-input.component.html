@@ -1,0 +1,16 @@
+<div class="form__group field">
+  <input
+    [type]="inputType"
+    [placeholder]="placeholder"
+    [name]="key"
+    [id]='id'
+    [(ngModel)]="value"
+    (input)="onInputChange(value)"
+    [disabled]="disabled"
+    class="form__field"
+  />
+  <label
+    [for]="id"
+    class="form__label">{{label}}
+  </label>
+</div>

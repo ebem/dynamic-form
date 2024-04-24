@@ -1,0 +1,36 @@
+<div class="user-form">
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div *ngFor="let field of formFields" class="user-form__field">
+      <app-dy-input
+        *ngIf="field.elementType === ElementType.INPUT"
+        [inputType]="field.type"
+        [id]="field.fieldType"
+        [label]="field.label"
+        [key]="field.key"
+        [formControlName]="field.key"
+      >
+      </app-dy-input>
+
+      <app-dy-select
+        *ngIf="field.elementType === ElementType.SELECT"
+        [id]="field.fieldType"
+        [label]="field.label"
+        [key]="field.key"
+        [options]="field.options ?? []"
+        [formControlName]="field.key"
+      >
+      </app-dy-select>
+    </div>
+
+    <button
+      class="user-form__button"
+      type="submit">
+      Submit
+    </button>
+  </form>
+
+  <div *ngIf="submittedForm" class="user-form__preview">
+    {{submittedForm | json }}
+  </div>
+</div>
+
